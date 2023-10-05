@@ -101,24 +101,27 @@ app.get("/transaction/:customerId", async (req, res) => {
     const{customerId} =req.params
     const getuser = await db.transaction.findUnique({
         where: { id: +customerId }, 
-        include: {
+        select: {
+            pricesold: true,
+             product:
+            {
+                select: {
+                price:true
+            }
+            },
             product:
             {
                 select: {
                 price:true
             }
             }
-        },
-        include: {
-            customer: {
-                select: {
-                    name:true
-                }
-            }
-        },
-        select: {
-            pricesold:true
         }
+     
+           
+        
+        
+           
+       
 
       
     })

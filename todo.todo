@@ -14,3 +14,7 @@ get the remainig product
 get user where vendors knows who bought an item
 get transaction including product ,the amount of which an item was product and sold.....
 get user product....
+
+
+select is used to retun a subset of fields in a record
+include is used for return all related record
