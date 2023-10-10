@@ -40,7 +40,7 @@ app.post("/vendor/login", async (req, res) => {
     },
   });
   if (!vendor) {
-    res.status(404).json("Unauthorised credentials");
+    res.status(401).json("provide your email");
     }
     // compare password 
     const comparePassword =await bcrypt.compare(password,vendor.password)
@@ -83,7 +83,7 @@ app.post("/user/login", async (req, res) => {
   const username = req.body.name;
   const user = { name: username };
   if (!email || !password) {
-    res.status(404).json("please provide your password");
+    res.status(401).json("please provide your password");
   }
   const customer = await db.customer.findUnique({
     where: {

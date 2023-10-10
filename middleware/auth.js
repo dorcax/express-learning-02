@@ -3,7 +3,7 @@ const jwt =require("jsonwebtoken")
 const isAuthenticated = async (req, res, next) => {
     const authHeader = req.headers.authorization
     if (!authHeader || !authHeader.startsWith("Bearer ")) {
-        res.status(401).json("no token found")
+        res.status(404).json("no token found")
     }
     console.log(authHeader)
     const token = authHeader.split(' ')[1]
