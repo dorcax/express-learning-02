@@ -17,4 +17,7 @@ get user product....
 
 
 select is used to retun a subset of fields in a record
-include is used for return all related record
+include is used for return all related record     "id": 14,
+        "name": "usman Azeez",
+        "email": "usmanAzeez123@gmail.com",
+        "password": "$2a$10$p/P6qwCxHQ5Gps7qt7AxuOgkambQgpFqhb6uRV8LER3iP7hA6kRaO"

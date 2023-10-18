@@ -5,9 +5,9 @@ const isAuthenticated = async (req, res, next) => {
     if (!authHeader || !authHeader.startsWith("Bearer ")) {
         res.status(404).json("no token found")
     }
-    console.log(authHeader)
+    // console.log(authHeader)
     const token = authHeader.split(' ')[1]
-    console.log(token)
+    // console.log(token)
     const decoded = jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
             if (err) {
                 res.status(401).json("invalid authentication")
