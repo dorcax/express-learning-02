@@ -8,6 +8,7 @@ const router =express.Router()
 
 router.route("/:vendorId")
   .post(productRouter.createProduct)
+router.route("/:vendorId")
   .get(productRouter.getProductVendor);
 router.route("/")
     .get(productRouter.getProduct);

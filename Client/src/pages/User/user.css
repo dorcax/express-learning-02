@@ -1,0 +1,14 @@
+.user{
+    display: flex;
+    width: 100%;
+    
+}
+.navBar{
+    flex:5;
+
+
+}
+
+.user-list{
+    margin-top: 20px;
+}

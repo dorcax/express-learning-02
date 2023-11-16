@@ -7,7 +7,7 @@ const router =express.Router()
 
 router.route("/:productId/:customerId/:vendorId")
     .post(transactionRouter.createProductTransaction)
-router.route("/:customerId")
+router.route("/")
     .get(transactionRouter.getTransaction)
 
 module.exports =router

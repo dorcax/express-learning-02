@@ -36,25 +36,28 @@ module.exports.createProductTransaction =async (req, res) => {
 
 //get each customer transaction including product ,the amount of which an item was product and sold.....
 module.exports.getTransaction=async (req, res) => {
-  const { customerId } = req.params;
+  const { vendorId } = req.params;
 try {
-      const getuser = await db.transaction.findUnique({
-        where: { id: +customerId },
-        select: {
-          pricesold: true,
-          product: {
-            select: {
-              price: true,
-            },
-          },
-          product: {
-            select: {
-              price: true,
-            },
-          },
-        },
-      });
-      res.status(200).json(getuser);
+  const getuser = await db.transaction.
+    findMany()
+        // where: { vendorId: +vendorId },
+        // select: {
+        //   pricesold: true,
+        //   product: {
+        //     select: {
+        //       price: true,
+        //     },
+        //   }
+        // },
+      // include: {
+      //   product: true,
+      //   customer: true,
+      //   vendor:true
+      //   }
+      // });
+  res.status(200).json(getuser);
+ 
+  
 } catch (error) {
     res.status(404).json("cannt find the transaction product of the customer id")
 }

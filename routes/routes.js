@@ -9,8 +9,6 @@ router.route("/")
     .post(userRouter.createUser);
 router.route("/login")
     .post(userRouter.userLogin);
-router.route("/user/:vendorId")
-    .get(userRouter.getUserVendor);
 
 
 

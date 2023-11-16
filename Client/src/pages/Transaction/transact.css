@@ -1,0 +1,10 @@
+.transact{
+    display: flex;
+    width: 100%;
+}
+.transact-navbar{
+    flex: 6;
+}
+.transact-details{
+margin:8% 20%;
+}

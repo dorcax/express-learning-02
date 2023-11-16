@@ -21,3 +21,20 @@ include is used for return all related record     "id": 14,
         "name": "usman Azeez",
         "email": "usmanAzeez123@gmail.com",
         "password": "$2a$10$p/P6qwCxHQ5Gps7qt7AxuOgkambQgpFqhb6uRV8LER3iP7hA6kRaO"
+
+
+NEW TASKS
+---- refactor all my code(done)
+----add joi validation to vendor and user registration (done)
+----- add a custom middleware to catch all the error(done)
+---redesign the UI (done)
+------ fetch all product(done)
+----- login and register vendor(done)
+----- login and register user
+---- edit product
+----- delete product
+----responsiveness
+fetch all users that buy each vendor product and thier deatails
+fetch all the user transaction
+logout
+responsiveness

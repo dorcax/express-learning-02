@@ -1,0 +1,66 @@
+.product{
+ 
+    width: 100%;
+   
+
+}
+
+.product-text h2{
+color: #fff;
+text-transform: capitalize;
+font-size: 2rem;
+height: 50px;
+text-align: start;
+padding: 40px 10px;
+ margin-top:5%  ;
+
+
+
+
+}
+.addproduct {
+ display: grid;
+ grid-template-columns: repeat(2,1fr);
+ gap: 10px;
+padding: 30px;
+/* margin-left: 18%; */
+  
+   
+    
+
+   
+}
+form .form-details label{
+    text-transform: capitalize;
+    padding-bottom: 10px;
+    display: block;
+    font-size: 20px;
+    color: #fff;
+    
+}
+form  .form-details input{
+    width: 400px;
+    height: 60px;
+    padding: 10px;
+    outline: none;
+
+}
+form .form-label input::placeholder{
+    text-transform: capitalize;
+    color: black;
+    font-size: 1rem;
+}
+
+form .submit  input{
+    width: 200px;
+    height: 40px;
+    display: block;
+    background-color: #f21137;
+    border: none;
+    margin: 10px 40px;
+    padding: 10px ;
+    font-size: 1.2rem;
+    text-transform: capitalize;
+    color: #fff;
+   
+}
