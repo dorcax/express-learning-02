@@ -4,6 +4,7 @@ const userRouter = require("../controller/userController")
 const router = express.Router();
 
 
+// router.use(isAuthenticated);
 // user router
 router.route("/")
     .post(userRouter.createUser);

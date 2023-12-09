@@ -9,7 +9,7 @@ module.exports.createUser = async (req, res, next) => {
     const { name, email, password } = req.body;
     const validateSchema = joi
       .object({
-        name: joi.string().required().min(5).max(15),
+        name: joi.string().required().min(5).max(30),
         email: joi
           .string()
           .email({ minDomainSegments: 2, tlds: { allow: ["com", "net"] } })
@@ -65,6 +65,18 @@ module.exports.userLogin = async (req, res) => {
     res.status(401).json("not authenticated");
   }
 };
-
-// "/users/:vendorId"
+//  delete user
+module.exports.DeleteUser =async(req,res)=>{
+const{userId} =req.params
+try {
+  const deleteuser =await db.user.delete({
+    where:{id:+userId}
+  })
+  res.status(201).json("deleted")
+} catch (error) {
+  res.status(404).json("cant delete the user account")
+  
+}
+  
+}
 

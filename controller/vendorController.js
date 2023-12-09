@@ -8,6 +8,9 @@ const {createCustomError} =require("../middleware/AppError")
 // an endpoint to create user
 module.exports.createVendor = async (req, res, next) => {
   const { name, email, password } = req.body;
+  
+  // console.log('In the create vendor function...')
+
   try {
     const vendorSchema = joi
       .object({
@@ -20,24 +23,36 @@ module.exports.createVendor = async (req, res, next) => {
       })
       .required();
     const { error } = vendorSchema.validate(req.body);
+    console.log(error);
     if (error) {
+
+      console.log('This is the result...');
+
       const msg = error.details.map((el) => el.message).join(",");
+      console.log(msg)
       return next(createCustomError(msg, 400));
     }
-    console.log(result);
+    
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
+
+    console.log({hashedPassword});
+
     const newVendor = { name, email, password: hashedPassword };
     const createVendor = await db.vendor.create({
       data: {
         ...newVendor,
       },
-    });
+    })
+
+    console.log('Creating a vendor: ', createVendor);
 
     res.status(201).json({ createVendor: createVendor });
   } catch (error) {
+
+    console.log('This is error: ', error);
+
     res.status(404).json("cant register a vendor")
- 
   }
 }
 
@@ -61,16 +76,22 @@ try {
       });
       if (!vendor) {
         // res.status(401).json("the email doesnt exist");
-        return next(createCustomError("provide your  correct email",401))
+        return next(createCustomError("the email doesnt exist",401))
       }
       // compare password
       const comparePassword = await bcrypt.compare(password, vendor.password);
+      // console.log(comparePassword)
       const token = jwt.sign(user, process.env.JWT_SECRET, { expiresIn: "3d" });
+      // console.log(token)
        res.status(200).json({vendor,token});
 } catch (error) {
     res.status(401).json("user unauthenticated")
 }
 }
+
+
+
+// an endpoint to find a single vendor
 module.exports.getUserVendor = async (req, res) => {
   const { vendorId } = req.params;
     try{
@@ -87,13 +108,14 @@ module.exports.getUserVendor = async (req, res) => {
             
             
         }
-        }
-          // select: {
-          //   product: true,
-          //   customer: true,
-          // },
+           },
+           product:true
+          
         
-      },
+      }, 
+   
+     
+        
     });
     res.status(200).json(user);
   } catch (error) {
