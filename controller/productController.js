@@ -8,7 +8,7 @@ module.exports.createProduct = async (req, res) => {
   try{
     const productSchema =joi.object({
       name:joi.string().required().min(4).max(20),
-      description:joi.string().required().min(10).max(50),
+      description:joi.string().required().min(10).max(20),
       price:joi.number().required().min(0),
       quantity:joi.number().required().min(0)
     }).required()
